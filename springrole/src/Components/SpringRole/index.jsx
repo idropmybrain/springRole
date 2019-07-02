@@ -8,8 +8,8 @@ class SpringRole extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      showDataArray : dummyData.slice(0,10),
-      itemsPerPage: 10
+      showDataArray : dummyData.slice(0,15),
+      itemsPerPage: 15
     }
   }
   
@@ -29,8 +29,9 @@ class SpringRole extends React.Component{
        }
        
        
-  changeView = (num,i) => {
-    console.log(num*this.state.itemsPerPage,num*this.props.itemsPerPage+this.props.itemsPerPage);
+  changeView = (event) => {
+    var num = event.target.innerHTML;
+    // console.log(num*this.state.itemsPerPage,num*this.props.itemsPerPage+this.props.itemsPerPage);
     this.setState({showDataArray : dummyData.slice(num*this.state.itemsPerPage - this.state.itemsPerPage,num*this.state.itemsPerPage)})
   }
   render(){
@@ -46,7 +47,6 @@ class SpringRole extends React.Component{
         total={data.length}
         itemsPerPage = {this.state.itemsPerPage}
         changeView = {this.changeView}
-        // onChnage = {}
       />
       {/* <div className="d-flex w-100 flex-row justify-content-between">
         {this.renderCard(dummyData)}

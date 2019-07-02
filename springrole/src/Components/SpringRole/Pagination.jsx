@@ -8,14 +8,16 @@ class Pagination extends React.Component{
     var dummyArr = [];
     while(this.props.total / this.props.itemsPerPage > i){
       let j = i;
-      dummyArr.push(<div className="m-3 btn btn-info" onClick={() => this.props.changeView(j,i)}>{i}</div>)
+      dummyArr.push(<div className="m-3 btn btn-info" >{i}</div>)
       i++;
     }
     return dummyArr;
   }
   
   render(){
-    return (<div className="d-flex flex-row flex-nowrap " style={{overflow: "scroll"}}>
+    return (<div className="d-flex flex-row flex-nowrap" style={{overflow: "scroll"}}
+      onClick={(e) => this.props.changeView(e)}
+            >
       {
         this.designPaginators()
       }
